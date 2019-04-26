@@ -58,10 +58,13 @@
                             "<td>" + resp.data[k].address.address_line + "</td>" +
                             "<td>" + resp.data[k].address.city + "</td>" +
                             "<td><button type=\"button\" id=" +resp.data[k].agency_code+">Guardar</button>" +
-                            "<button type=\"button\" >Eliminar</button> </td>" +
+                            "<button type=\"button\" id=E" +resp.data[k].agency_code+">Eliminar</button> </td>" +
                             "</tr>");
                         $('#'+resp.data[k].agency_code).click(function(){
                             persistir(resp.data[k])
+                        })
+                        $('#E'+resp.data[k].agency_code).click(function(){
+                            eliminar(resp.data[k].agency_code)
                         })
                     });
 
@@ -77,10 +80,20 @@
             url: URL,
             data: {respuesta: json},
             success: function (resp) {
+                alert("Se guardo correctamente")
             },
         });
     }
-    
+    function eliminar(respuesta) {
+        var json= JSON.stringify( respuesta);
+        var URL = "${createLink(controller:'cliente',action:'persistirAgencia')}";
+        $.ajax({
+            url: URL,
+            data: {respuesta: json},
+            success: function (resp) {
+            },
+        });
+    }
 </script>
 <div id="div1" class="table-responsive">
 
