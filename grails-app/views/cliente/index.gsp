@@ -90,7 +90,7 @@
             url: URL,
             data: {respuesta: respuesta},
             success: function (resp) {
-                alert("Se eliminó correctamente")
+                alert(""+resp)
             },
         });
     }
