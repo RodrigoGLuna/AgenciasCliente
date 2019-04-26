@@ -86,7 +86,7 @@
     }
     function eliminar(respuesta) {
         var json= JSON.stringify( respuesta);
-        var URL = "${createLink(controller:'cliente',action:'persistirAgencia')}";
+        var URL = "${createLink(controller:'cliente',action:'eliminarAgencia')}";
         $.ajax({
             url: URL,
             data: {respuesta: json},
