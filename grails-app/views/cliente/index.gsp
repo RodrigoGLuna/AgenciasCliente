@@ -62,7 +62,7 @@
                             "</tr>");
                         $('#'+resp.data[k].agency_code).click(function(){
                             persistir(resp.data[k])
-                        })
+                        });
                         $('#E'+resp.data[k].agency_code).click(function(){
                             eliminar(resp.data[k].agency_code)
                         })
@@ -85,12 +85,12 @@
         });
     }
     function eliminar(respuesta) {
-        var json= JSON.stringify( respuesta);
         var URL = "${createLink(controller:'cliente',action:'eliminarAgencia')}";
         $.ajax({
             url: URL,
-            data: {respuesta: json},
+            data: {respuesta: respuesta},
             success: function (resp) {
+                alert("Se eliminó correctamente")
             },
         });
     }
