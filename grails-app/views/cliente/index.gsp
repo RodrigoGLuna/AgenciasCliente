@@ -22,7 +22,7 @@
         <br><input type="text" id="payment_method_id" placeholder="Metodo de pago" required></br>
         <br><input type="text" id="latitud" placeholder="Latitud" required></br>
         <br><input type="text" id="longitud" placeholder="Longitud" required></br>
-        <br><input type="number" id="limite" placeholder="Limite" ></br>
+        <br><input type="number" id="limite" placeholder="Limite"></br>
         <br>
         <select name="selector">
             <option value="0">Sin ordenamiento</option>
@@ -39,10 +39,9 @@
     function validar() {
         if (document.getElementById('site_id').value == '' || document.getElementById('payment_method_id').value == '' || document.getElementById('latitud').value == '' || document.getElementById('longitud').value == '') {
             alert("Complete los campos requeridos");
-        } else if ((document.getElementById('limite').value<1 ||document.getElementById('limite').value>100) &&  document.getElementById('limite').value!= ''){
+        } else if ((document.getElementById('limite').value < 1 || document.getElementById('limite').value > 100) && document.getElementById('limite').value != '') {
             alert("El limite debe ser entre 1 a 100");
-        }
-        else {
+        } else {
             getAgencias();
         }
     }
@@ -78,7 +77,7 @@
                         "<td>" + resp.data[k].description + "</td>" +
                         "<td>" + resp.data[k].address.address_line + "</td>" +
                         "<td>" + resp.data[k].address.city + "</td>" +
-                        "<td><button type=\"button\" id=" + resp.data[k].agency_code +" class=\"btn btn-primary\">Guardar</button>" +
+                        "<td><button type=\"button\" id=" + resp.data[k].agency_code + " class=\"btn btn-primary\">Guardar</button>" +
                         "<button type=\"button\" id=E" + resp.data[k].agency_code + " class=\"btn btn-danger\">Eliminar</button> </td>" +
                         "</tr>");
                     $('#' + resp.data[k].agency_code).click(function () {
@@ -123,11 +122,12 @@
     }
 </script>
 
-<div id="div1" class="table-responsive" >
+<div id="div1" class="table-responsive">
 
 </div>
 
-<button id="botonOculto" type="button" style="margin-top: 20px; display: none;" class="btn btn-info btn-lg" onclick="verBaseDato()">Ver Date Base</button>
+<button id="botonOculto" type="button" style="margin-top: 20px; display: none;" class="btn btn-info btn-lg"
+        onclick="verBaseDato()">Ver Date Base</button>
 
 </body>
 </html>
